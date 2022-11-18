@@ -1,4 +1,5 @@
-# Overview
+# Introduction
+
 
 ClimateChallengeAPI gives you fully control access to many endpoints to be accessed inside the video game. It has, pieces, slots, questions, answers and topics to handle the video game.
 
@@ -7,6 +8,8 @@ This documentation describes all the available API calls and properties of the r
 > At this time the bees-tat API is unstable. This means that the way it works and the data it returns may change at any time. Breaking changes are rare, but do happen. Proper versioning will be introduced in a future release.
 
 # Getting Started
+
+[`https://desafioplaneta.com/api/`](https://desafioplaneta.com/api/)
 
 ## Step 1 — Obtaining an API Key
 
@@ -51,30 +54,15 @@ All API calls will return JSON with both a `success` and a `data` property. Exce
 Open endpoints require no Authentication.
 
 * [`POST /login`](auth_api/post.md)
-* [`GET /api`](get.md)
+* [`GET /api`](base_api/get.md)
 
 ## Endpoints that require Authentication
 
 Closed endpoints require a valid Token to be included in the header of the
 request. A Token can be acquired from the Login view above.
 
-_Game Endpoint_
-
 * [`GET /game`](game_api/get.md)
-* [`POST /game`](game_api/post.md)
-
-_Trivia Endpoint_
-
 * [`GET /trivia`](trivia_api/get.md)
-* [`POST /trivia`](trivia_api/post.md)
-
-_Topic Endpoint_
-
 * [`GET /topic`](topic_api/get.md)
-* [`POST /topic`](topic_api/post.md)
-
-_Question Endpoint_
-
 * [`GET /question`](question_api/get.md)
-* [`GET /question`](question_api/post.md)
 
