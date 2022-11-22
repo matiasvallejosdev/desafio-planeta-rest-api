@@ -1,3 +1,34 @@
-from django.shortcuts import render
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
+from rest_framework import generics, permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-# Create your views here.
+from auth_api import serializers, permissions as auth_api_permissions
+
+from django.contrib.auth import get_user_model
+
+
+class TestConnectionAPI(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs):
+        return Response({
+            "message": "Connection success!"
+        })
+
+
+class UserCreateAPI(generics.CreateAPIView):
+    serializer_class = serializers.UserSerializer
+    permission_classes = (permissions.IsAdminUser,)
+
+
+class UserRetrieveAPI(generics.RetrieveAPIView):
+    serializer_class = serializers.UserSerializer
+    queryset = get_user_model().objects.all()
+    permission_classes = (permissions.IsAdminUser,)
+
+
+class UserTokenAPI(ObtainAuthToken):
+    serializer_class = serializers.AuthSerializer
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES

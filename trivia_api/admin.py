@@ -1,3 +1,22 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+
+@admin.register(Trivia)
+class TriviaAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Type)
+class TypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Answer)
+class AnswerAdmin(admin.ModelAdmin):
+    pass
