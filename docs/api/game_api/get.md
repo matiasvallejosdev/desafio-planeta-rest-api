@@ -8,6 +8,10 @@ GET /game
 
 This endpoint gives you access to all the games available in the entire database.
 
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
+
 **Arguments**
 
 None required.
@@ -27,6 +31,10 @@ GET /game/`<id>`
 ---
 
 This endpoint gives you access to a specific game available from its ID.
+
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
 
 **Arguments**
 

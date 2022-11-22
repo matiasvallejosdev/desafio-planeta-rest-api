@@ -21,10 +21,11 @@ The entities detected for the diagram were:
 * Type
 * Answer
 
-Take look at the diagram designed with the defined entities:
+Take look at the diagram designed with the defined entities.
 
 ![Database Design](db/db-diagram.png)
 
+> Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
 
 # Getting Started
 
@@ -39,30 +40,45 @@ The API credentials were stored inside each instance of the game and will be cre
 1. Use postman to get your `API_KEY` authentication token.
 
 ```bash
-https://desafioplaneta.com/api/login/
+https://desafioplaneta.com/api/token/
 ```
-
-## Step 2 — Test connection
+### Step 2 — Setup
 
 There are four properties that you must include in every API call.
 
-1. `api_key` A 40-character alphanumeric string that gives you access to use the API.
+1. `Authorization` A 40-character alphanumeric string that gives you access to use the API.
+
+Take look at the header of the request:
+```json
+{
+  "Authorization": "Token 13262sdh12ds1wwedj655"
+}
+```
+
+> This is necessary to access to all restricted queries.
+
 2. `method` An actions you can perform on a resource.
 3. `arguments` JSON-encoded values sent to the method, sometimes optional.
 
+
+## Step 3 — Test connection
+
 With that in mind, the next step is to send a `POST` or `GET` request to `api.beestat.io` with the appropriate values set.
 
-1. Use postman and send mock GET request to the following domain:
+1. Set up your request headers with `Authorization` parameter
+2. Use postman and send mock GET request to the following domain:
+
+Test your API.
 
 ```bash
-https://desafioplaneta.com/api/?api_key={YOUR API KEY}
+https://desafioplaneta.com/api/
 ```
 
-## Step 3 — Run setup
+## Step 4 — Run setup
 
 1. You're good to go!
 
-All API calls will return JSON with both a `success` and a `data` property. Exceptions to this will be specified in the documentation.
+All API calls will return JSON a set of properties. Exceptions to this will be specified in the documentation.
 
 > You should always attempt to JSON decode the response, then use the success property to determine if the API call succeeded.
 
@@ -72,7 +88,7 @@ All API calls will return JSON with both a `success` and a `data` property. Exce
 
 Open endpoints require no Authentication.
 
-* [`POST /login`](api/auth_api/post.md)
+* [`POST /auth`](api/auth_api/post.md)
 * [`GET /api`](api/base_api/get.md)
 
 ## Endpoints that require Authentication
@@ -80,8 +96,9 @@ Open endpoints require no Authentication.
 Closed endpoints require a valid Token to be included in the header of the
 request. A Token can be acquired from the Login view above.
 
+* [`GET /user`](api/auth_api/get.md)
 * [`GET /game`](api/game_api/get.md)
-* [`GET /trivia`](api/trivia_api/get.md)
 * [`GET /topic`](api/topic_api/get.md)
+* [`GET /trivia`](api/trivia_api/get.md)
 * [`GET /question`](api/question_api/get.md)
 

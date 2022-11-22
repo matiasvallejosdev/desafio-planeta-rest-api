@@ -8,6 +8,10 @@ GET /question
 
 This endpoint gives you access to all questions. They can be filtered by `trivia_id`.
 
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
+
 **Arguments**
 
 None required.
@@ -27,6 +31,10 @@ GET /game/`<id>`
 ---
 
 This endpoint gives you access to a specific game available from its ID.
+
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
 
 **Arguments**
 

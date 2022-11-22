@@ -8,6 +8,10 @@ GET /trivia/
 
 This endpoint gives a set of questions and answers related to a topic.
 
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
+
 **Arguments**
 
 None required.
@@ -27,6 +31,10 @@ GET /trivia/`id`
 ---
 
 This endpoint gives you access to a specific trivia game.
+
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
 
 **Arguments**
 

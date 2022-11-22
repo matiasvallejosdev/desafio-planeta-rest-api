@@ -8,6 +8,10 @@ GET /topic
 
 This endpoint gives you access to all the topics available in the game.
 
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
+
 **Arguments**
 
 None required.
@@ -27,6 +31,10 @@ GET /topic/`<id>`
 ---
 
 This endpoint gives you access to a specific topic available from its ID.
+
+**Auth required** : YES
+
+**Permissions required** : `isAuthenticated`
 
 **Arguments**
 
