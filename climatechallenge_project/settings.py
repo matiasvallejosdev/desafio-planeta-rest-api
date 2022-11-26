@@ -47,7 +47,8 @@ INSTALLED_APPS = [
 
     'core',
     'auth_api',
-    'game_api'
+    'game_api',
+    'trivia_api',
 ]
 
 REST_FRAMEWORK = {
@@ -56,7 +57,8 @@ REST_FRAMEWORK = {
         # https://stackoverflow.com/questions/41462593/why-django-swagger-is-not-showing-docs-for-urls-that-has-permissions-isauthentic
         'rest_framework.authentication.SessionAuthentication',
     ],
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': 'rest_framework.filters.BaseFilterBackend',
 }
 
 # https://django-rest-swagger.readthedocs.io/en/latest/settings/
@@ -168,10 +170,3 @@ AUTH_USER_MODEL = 'auth_api.User'
 
 # Default storage in aws
 
-AWS_QUERYSTRING_AUTH = False
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_ACCESS_KEY_ID = 'AKIAZ46VCXTDUVH52SWP'
-AWS_SECRET_ACCESS_KEY = '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'
-
-AWS_STORAGE_BUCKET_NAME = 'climatechallenge'
