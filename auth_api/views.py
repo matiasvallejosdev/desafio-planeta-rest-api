@@ -29,6 +29,12 @@ class UserRetrieveAPI(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAdminUser,)
 
 
+class UserListAPI(generics.ListAPIView):
+    serializer_class = serializers.UserSerializer
+    queryset = get_user_model().objects.all()
+    permission_classes = (permissions.IsAdminUser,)
+
+
 class UserTokenAPI(ObtainAuthToken):
     serializer_class = serializers.AuthSerializer
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
