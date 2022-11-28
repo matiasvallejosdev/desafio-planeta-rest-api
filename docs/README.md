@@ -8,9 +8,11 @@ This documentation describes all the available API calls and properties of the r
 
 # Understanding database
 
-This database was designed to build a game. The objective is saved the trivia data with a set of questions and answers. Each trivia was connected with a topic. Besides, each topic will be connected with a game that will save the images url, sprites and all metadata needed to start a new game.
+This database was designed to build a game. The objective is support the data necessary to build the game. It is not related to users.
 
-The entities detected for the diagram were:
+The database has two purposes. First, it provides a list of topics and games that are necessary to build the game. Second, it provides all the necessary for the questions and answers. Each trivia was connected with a topic. Besides, each topic will be connected with a game that will save the images url, sprites and all metadata needed to start a new game.
+
+Having said this, you should be able to identify the following entites necessary to build the database:
 
 * Game
 * Piece
@@ -21,9 +23,11 @@ The entities detected for the diagram were:
 * Type
 * Answer
 
-Take look at the diagram designed with the defined entities.
+Now, the following diagram represent the logic relations between the entities and the set of minimal attributes of them. Take look at the diagram.
 
-![Database Design](db/db-diagram.png)
+<img src="db/db-diagram.png" alt="db-design" style="max-width: 780px"/>
+
+_Diagram developed in `diagrams.net` to represent the entity-relation model_
 
 > Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
 
