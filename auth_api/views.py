@@ -9,7 +9,7 @@ from auth_api import serializers, permissions as auth_api_permissions
 from django.contrib.auth import get_user_model
 
 
-class TestConnectionAPI(APIView):
+class UserConnectionAPI(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):

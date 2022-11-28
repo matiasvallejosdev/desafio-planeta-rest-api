@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model, authenticate
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ('email', 'password', 'instance_name', 'count_auth',)
+        fields = ('email', 'password', 'instance_name',)
         extra_kwargs = {
             'count_auth': {'read_only': True},
             'password': {'write_only': True, 'min_length': 5}

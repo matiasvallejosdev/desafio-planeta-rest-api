@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 
 from core.views import LoginView, LogoutView
-from auth_api.views import TestConnectionAPI
+from auth_api.views import UserConnectionAPI
 
 from django.contrib.auth.decorators import permission_required
 
@@ -11,7 +11,7 @@ schema_view = get_swagger_view(title='ClimateChallengeAPI')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', TestConnectionAPI.as_view(), name='test-connection'),
+    path('api/', UserConnectionAPI.as_view(), name='test-connection'),
     path('api/', include('game_api.urls', namespace='game')),
     path('api/', include('trivia_api.urls', namespace='trivia')),
     path('api/core/', include('core.urls')),
