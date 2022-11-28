@@ -6,7 +6,7 @@ A topic is a set of educational questions, answers and game that will help to bu
 GET /topic
 ---
 
-This endpoint gives you access to a list of all topics available in the game grouped by game id.
+This endpoint gives you access to a list of all topics available in the game grouped by game.
 
 **Auth required** : YES
 

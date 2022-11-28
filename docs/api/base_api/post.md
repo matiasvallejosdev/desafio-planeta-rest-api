@@ -19,4 +19,4 @@ GET https://desafioplaneta.com/api/auth/
 
 **Example Response**
 
-[response_get_api.json](response/response_get_api.json)
+[response_get_api.json](responses/response_post_api-test.json)
