@@ -18,17 +18,26 @@ class Piece(models.Model):
 
 
 class Game(models.Model):
+    COLOR_CHOICES = (
+        ('green', 'GREEN'),
+        ('blue', 'BLUE'),
+        ('red', 'RED'),
+        ('orange', 'ORANGE'),
+        ('black', 'BLACK'),
+    )
     name = models.CharField(blank=True, max_length=240)
     subhead = models.CharField(blank=True, max_length=45)
     summary = models.CharField(blank=True, max_length=240)
+    color = models.CharField(max_length=6, choices=COLOR_CHOICES, default='black')
     slot = models.ForeignKey(Slot, blank=True, null=True, on_delete=models.CASCADE)
     pieces = models.ManyToManyField(Piece, blank=True)
+    is_published = models.BooleanField(default=False)
 
     def __str__(self):
         pieces_count = self.pieces.count()
         slot_count = 0 if self.slot is None else 1
-        text = f"{self.name} 👉 {slot_count} slot and {pieces_count} pieces"
-        return text
+        published = '👍' if self.is_published else '👎'
+        return f"{published} → {self.name} 👉 {slot_count} slot and {pieces_count} pieces"
 
 
 class Topic(models.Model):
@@ -50,5 +59,4 @@ class Topic(models.Model):
 
     def __str__(self):
         published = '👍' if self.is_published else '👎'
-        text = f"{published} →   {self.game.name} 📍 {self.title}"
-        return text
+        return f"{published} →   {self.game.name} 📍 {self.title}"

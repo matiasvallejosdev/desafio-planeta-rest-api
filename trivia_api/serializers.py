@@ -1,35 +1,47 @@
 from rest_framework import serializers
-from trivia_api import models
+
+from trivia_api.models import Answer, Question, Trivia
+from game_api.models import Topic
 
 from game_api.serializers import TopicBasicSerailizer
 
 
-class AnswerSerializer(serializers.ModelSerializer):
+class TriviaAnswerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Answer
-        fields = ('id', 'answer', 'is_correct',)
-        read_only_fields = ('id',)
+        model = Answer
+        fields = ('answer', 'is_correct',)
 
 
-class QuestionSerializer(serializers.ModelSerializer):
-    answers = AnswerSerializer(many=True)
+class TriviaQuestionSerializer(serializers.ModelSerializer):
+    answers = TriviaAnswerSerializer(many=True)
 
     class Meta:
-        model = models.Question
-        fields = ('id', 'question', 'type', 'answers', 'has_explication', 'explication',)
+        model = Question
+        fields = ('question', 'type', 'answers', 'has_explication', 'explication',)
         read_only_fields = ('id',)
         depth = 1
 
 
 class TriviaSerializer(serializers.ModelSerializer):
-    topic = TopicBasicSerailizer()
     # Serialize a foreigun key field
     # https://stackoverflow.com/questions/56298645/serializing-foreign-key-field
     # https://stackoverflow.com/questions/28309507/django-rest-framework-filtering-for-serializer-field
-    questions = QuestionSerializer(many=True)
+    questions = TriviaQuestionSerializer(many=True)
 
     class Meta:
-        model = models.Trivia
-        fields = ('id', 'topic', 'questions',)
+        model = Trivia
+        fields = ('id', 'questions',)
         read_only_fields = ('id',)
         depth = 2
+
+
+class TopicTriviaSerializer(serializers.ModelSerializer):
+    trivias = serializers.SerializerMethodField('get_trivias')
+
+    def get_trivias(self, topic):
+        return TriviaSerializer(Trivia.objects.filter(topic__id=topic.id, is_published=True), many=True).data
+
+    class Meta:
+        model = Topic
+        fields = ('id', 'title', 'trivias',)
+        read_only_fields = ('id', 'trivias', )

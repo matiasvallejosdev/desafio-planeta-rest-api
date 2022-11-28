@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from game_api import models
+from game_api.models import Topic, Game
 
 
 class GameSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Game
-        fields = ('id', 'name', 'summary', 'slot', 'pieces',)
+        model = Game
+        fields = ('id', 'name', 'color', 'slot', 'pieces',)
         read_only_fields = ('id',)
         depth = 1
 
@@ -17,12 +17,23 @@ class GameBasicSerializer(serializers.Serializer):
 
 
 class TopicSerializer(serializers.ModelSerializer):
-    game = GameBasicSerializer(read_only=True)
+    class Meta:
+        model = Topic
+        fields = ('id', 'title', 'thumbnail', 'thumbnail_color', 'summary', 'featured',)
+        read_only_fields = ('id',)
+        depth = 1
+
+
+class GameTopicSerializer(serializers.ModelSerializer):
+    topics = serializers.SerializerMethodField('get_topics')
+
+    def get_topics(self, game):
+        return TopicSerializer(Topic.objects.filter(game__id=game.id, is_published=True), many=True).data
 
     class Meta:
-        model = models.Topic
-        fields = ('id', 'game', 'title', 'thumbnail', 'thumbnail_color', 'summary', 'featured',)
-        read_only_fields = ('id',)
+        model = Game
+        fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics')
+        read_only_fields = ('id', 'topics', )
         depth = 1
 
 

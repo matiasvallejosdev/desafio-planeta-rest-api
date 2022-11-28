@@ -1,12 +1,9 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-
 from game_api import views
-router = DefaultRouter()
-router.register('game', views.GameAPI)
-router.register('topic', views.TopicAPI)
 
 app_name = 'game_api'
 urlpatterns = [
-    path('', include(router.urls))
+    path('game/<int:pk>/', views.GameRetrieveAPI.as_view(), name='game-pk'),
+    path('topic/<int:pk>/', views.TopicRetrieveAPI.as_view(), name='topic-pk'),
+    path('topics/', views.TopicListAPI.as_view(), name='topic-list4')
 ]
