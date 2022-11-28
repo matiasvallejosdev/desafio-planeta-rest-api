@@ -6,7 +6,7 @@ A trivia endpoint you can get a set questions with answers. This set are conside
 GET /trivia/
 ---
 
-This endpoint gives a set of questions and answers related to a topic.
+This endpoint gives a set of questions, answers and dialogs related to a topic.
 
 **Auth required** : YES
 
