@@ -1,0 +1,10 @@
+[
+  {
+    "email": "admin@email.com",
+    "instance_name": "Admin"
+  },
+  {
+    "email": "game@email.com",
+    "instance_name": "Game"
+  }
+]

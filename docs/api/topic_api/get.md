@@ -6,7 +6,7 @@ A topic is a set of educational questions, answers and game that will help to bu
 GET /topic
 ---
 
-This endpoint gives you access to all the topics available in the game.
+This endpoint gives you access to a list of all topics available in the game grouped by game id.
 
 **Auth required** : YES
 
@@ -19,7 +19,7 @@ None required.
 **Example Request**
 
 ```bash
-GET https://desafioplaneta.com/api/topic/?api_key={YOUR API KEY}
+GET https://desafioplaneta.com/api/topic/
 ```
 
 **Example Response**
@@ -43,7 +43,7 @@ This endpoint gives you access to a specific topic available from its ID.
 **Example Request**
 
 ```bash
-GET https://desafioplaneta.com/api/topic/<id>/?api_key={YOUR API KEY}
+GET https://desafioplaneta.com/api/topic/<id>/
 ```
 
 **Example Response**

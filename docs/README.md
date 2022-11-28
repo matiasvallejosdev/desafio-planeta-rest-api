@@ -100,5 +100,4 @@ request. A Token can be acquired from the Login view above.
 * [`GET /game`](api/game_api/get.md)
 * [`GET /topic`](api/topic_api/get.md)
 * [`GET /trivia`](api/trivia_api/get.md)
-* [`GET /question`](api/question_api/get.md)
 

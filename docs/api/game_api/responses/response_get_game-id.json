@@ -1,0 +1,37 @@
+{
+  "id": 1,
+  "name": "Dióxido de carbono",
+  "color": "blue",
+  "slot": {
+    "id": 1,
+    "name": "Tree C02",
+    "image": "https://climatechallenge.s3.amazonaws.com/slot_carbon-1.png"
+  },
+  "pieces": [
+    {
+      "id": 1,
+      "name": "C02 Black",
+      "image": "https://climatechallenge.s3.amazonaws.com/piece_carbon-1.png"
+    },
+    {
+      "id": 2,
+      "name": "C02 Red",
+      "image": "https://climatechallenge.s3.amazonaws.com/piece_carbon-3.png"
+    },
+    {
+      "id": 3,
+      "name": "C02 Brown",
+      "image": "https://climatechallenge.s3.amazonaws.com/piece_carbon-2.png"
+    },
+    {
+      "id": 4,
+      "name": "C02 Yellow",
+      "image": "https://climatechallenge.s3.amazonaws.com/piece_carbon-5.png"
+    },
+    {
+      "id": 5,
+      "name": "C02 Gray",
+      "image": "https://climatechallenge.s3.amazonaws.com/piece_carbon-2.png"
+    }
+  ]
+}
