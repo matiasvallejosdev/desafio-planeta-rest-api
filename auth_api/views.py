@@ -14,7 +14,7 @@ class TestConnectionAPI(APIView):
 
     def post(self, request, *args, **kwargs):
         return Response({
-            "message": "Connection success!"
+            "detail": "Connection successfully!"
         })
 
 

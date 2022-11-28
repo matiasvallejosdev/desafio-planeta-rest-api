@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x+-5rqurn#)vllskkhc!9t4$n=m$uvj0%b*ut$5#5h4)5&^a5='
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'auth_api',
     'game_api',
     'trivia_api',
+
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
@@ -58,7 +60,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    'DEFAULT_FILTER_BACKENDS': 'rest_framework.filters.BaseFilterBackend',
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
 }
 
 # https://django-rest-swagger.readthedocs.io/en/latest/settings/
@@ -170,3 +174,10 @@ AUTH_USER_MODEL = 'auth_api.User'
 
 # Default storage in aws
 
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+
+AWS_STORAGE_BUCKET_NAME = 'climatechallenge'

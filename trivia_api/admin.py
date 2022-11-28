@@ -7,11 +7,6 @@ class TriviaAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Type)
-class TypeAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     pass

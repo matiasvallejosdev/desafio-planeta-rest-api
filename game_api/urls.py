@@ -6,7 +6,7 @@ router = DefaultRouter()
 router.register('game', views.GameAPI)
 router.register('topic', views.TopicAPI)
 
-app_label = 'game_api'
+app_name = 'game_api'
 urlpatterns = [
     path('', include(router.urls))
 ]

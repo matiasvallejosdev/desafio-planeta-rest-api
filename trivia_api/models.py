@@ -2,27 +2,39 @@ from django.db import models
 from game_api.models import Topic
 
 
-# Create your models here.
-
-class Trivia(models.Model):
-    title = models.CharField(max_length=255, null=True)
-    topic = models.ForeignKey(Topic, null=True, blank=True, on_delete=models.CASCADE)
-    published = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-
-
-class Type(models.Model):
-    name = models.CharField(max_length=255)
-
-
-class Question(models.Model):
-    question = models.CharField(max_length=255, null=True)
-    type = models.ForeignKey(Type, blank=True, null=True, on_delete=models.SET_NULL)
-    trivia = models.ForeignKey(Trivia, blank=True, null=True, on_delete=models.CASCADE)
-    published = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-
-
 class Answer(models.Model):
     answer = models.CharField(max_length=255, blank=True, null=True)
     is_correct = models.BooleanField(default=False)
+
+    def __str__(self):
+        state = '✅' if self.is_correct else '❌'
+        return f"{state} {self.answer}"
+
+
+class Question(models.Model):
+    TYPE_CHOICES = (
+        ('TwoAnswers', 'TwoAnswers'),
+        ('FourAnswers', 'FourAnswers')
+    )
+    question = models.CharField(max_length=255, null=True)
+    type = models.CharField(max_length=255, choices=TYPE_CHOICES, default='FourAnswers')
+    answers = models.ManyToManyField(Answer, blank=True)
+    has_explication = models.BooleanField(default=False)
+    explication = models.CharField(blank=True, max_length=240)
+    is_published = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        published = '👍' if self.is_published else '👎'
+        return f"{published} → {self.question}"
+
+
+class Trivia(models.Model):
+    topic = models.ForeignKey(Topic, null=True, blank=True, on_delete=models.SET_NULL)
+    questions = models.ManyToManyField(Question, blank=True)
+    is_published = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        published = '👍' if self.is_published else '👎'
+        return f"{published} → Trivia {self.pk} → {self.topic.title}"
