@@ -5,11 +5,11 @@ API endpoint allow you to access to the documentation of the REST api.
 GET /api/
 --
 
-This endpoint generates automatically an api documentation using [`drfdocs`](https://github.com/manosim/django-rest-framework-docs) third part application.
+This endpoint allows you to test your api connection and credentials.
 
 **Auth required** : YES
 
-**Permissions required** : None
+**Permissions required** : `isAuthenticated`, `isAdminOnly`
 
 **Arguments**
 
@@ -32,7 +32,7 @@ This endpoint generates automatically an api documentation using [`drfdocs`](htt
 
 **Auth required** : NO
 
-**Permissions required** : None
+**Permissions required** : `isAuthenticated`, `isAdminOnly`
 
 **Arguments**
 

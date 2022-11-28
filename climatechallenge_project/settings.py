@@ -76,12 +76,12 @@ SWAGGER_SETTINGS = {
         }
     },
     'USE_SESSION_AUTH': True,
-    'JSON_EDITOR': True
+    'JSON_EDITOR': True,
 }
 
 # https://stackoverflow.com/questions/14021913/django-logout-not-working
-LOGIN_URL = '/api/core/login/'
-LOGOUT_URL = '/api/core/logout/'
+LOGIN_URL = 'core:login'
+LOGOUT_URL = 'core:logout'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

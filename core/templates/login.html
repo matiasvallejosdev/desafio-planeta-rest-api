@@ -3,9 +3,13 @@
 {% block root %}
 
 <div class="login">
+    <div class="login__head">
+        <p class="login__subtitle">Welcome to</p>
+        <h3 class="login__title">ClimateChallengeAPI</h3>
+    </div>
     <form method="POST" class="login__form">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.as_div}}
         <input type="submit" value="Login">
     </form>
 </div>
