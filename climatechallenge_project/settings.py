@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # https://stackoverflow.com/questions/59230539/django-rest-swagger-staticfiles-is-not-a-registered-tag-library-must-be-one
-    'rest_framework_swagger',
+    # 'rest_framework_swagger',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
 
     'core',
     'auth_api',
@@ -67,24 +69,33 @@ REST_FRAMEWORK = {
         # https://stackoverflow.com/questions/41462593/why-django-swagger-is-not-showing-docs-for-urls-that-has-permissions-isauthentic
         'rest_framework.authentication.SessionAuthentication',
     ],
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
 
 # https://django-rest-swagger.readthedocs.io/en/latest/settings/
-# https://stackoverflow.com/questions/24864902/how-to-add-token-auth-to-swagger-django-rest-framework
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'api_key': {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization'
+# # https://stackoverflow.com/questions/24864902/how-to-add-token-auth-to-swagger-django-rest-framework
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'ClimateChallengeAPI',
+    'DESCRIPTION': 'An endpoint to support climate challenge game',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+    'APPEND_COMPONENTS': {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization"
+            }
         }
     },
-    'USE_SESSION_AUTH': True,
-    'JSON_EDITOR': True,
+    'SECURITY': [{"ApiKeyAuth": [], }],
 }
 
 # https://stackoverflow.com/questions/14021913/django-logout-not-working
