@@ -10,7 +10,7 @@
         </div>
         <form method="POST" class="login__form">
             {% csrf_token %}
-            {{form.as_div}}
+            {{form.as_p}}
             <input class="login__submit" type="submit" value="Login">
         </form>
     </div>

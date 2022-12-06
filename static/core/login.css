@@ -56,7 +56,7 @@
     align-items: flex-start;
 }
 
-.login__form div{
+.login__form p{
     display: flex;
     height: auto;
     margin: 0;
@@ -66,7 +66,7 @@
     gap: .5rem
 }
 
-.login__form div > input{
+.login__form p > input{
     box-sizing: border-box;
     border-radius: 10px;
     background-color: #fff;
@@ -76,7 +76,7 @@
     color: #666;
 }
 
-.login__form div > input:focus{
+.login__form p > input:focus{
     box-sizing: border-box;
     border: 1px solid rgba(255, 160, 160, 0.6);
     color: #333;
@@ -84,7 +84,7 @@
     outline: none;
 }
 
-.login__form div > label{
+.login__form p > label{
     box-sizing: border-box;
     color: #666;
     padding-left: .5rem;
