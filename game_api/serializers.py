@@ -19,7 +19,7 @@ class GameBasicSerializer(serializers.Serializer):
 class TopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topic
-        fields = ('id', 'title', 'thumbnail', 'thumbnail_color', 'summary', 'featured',)
+        fields = ('id', 'title', 'thumbnail', 'summary', 'featured',)
         read_only_fields = ('id',)
         depth = 1
 

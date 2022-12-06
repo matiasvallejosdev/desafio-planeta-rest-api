@@ -11,6 +11,7 @@ schema_view = get_swagger_view(title='ClimateChallengeAPI')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include('game_api.urls', namespace='game')),
     path('api/', include('trivia_api.urls', namespace='trivia')),
     path('api/', include('core.urls')),

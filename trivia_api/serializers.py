@@ -43,5 +43,5 @@ class TopicTriviaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ('id', 'title', 'trivias',)
+        fields = ('id', 'trivias',)
         read_only_fields = ('id', 'trivias', )
