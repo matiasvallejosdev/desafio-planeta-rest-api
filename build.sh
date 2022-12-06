@@ -7,4 +7,4 @@ pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py migrate
 
-python manage.py createsuperuser
+python manage.py shell -c "from django.contrib.auth import get_user_model; get_user_model().objects.create_superuser('admin@climatechallenge.com', 'admin19573')"
