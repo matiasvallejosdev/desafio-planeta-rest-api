@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     # https://stackoverflow.com/questions/59230539/django-rest-swagger-staticfiles-is-not-a-registered-tag-library-must-be-one
     # 'rest_framework_swagger',
     'drf_spectacular',
-    'drf_spectacular_sidecar',
+    'drf_spectacular_sidecar',  # required for Django collectstatic discovery
 
     'core',
     'auth_api',
@@ -83,9 +83,6 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'An endpoint to support climate challenge game',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
-    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
-    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
-    'REDOC_DIST': 'SIDECAR',
     'APPEND_COMPONENTS': {
         "securitySchemes": {
             "ApiKeyAuth": {
@@ -96,6 +93,9 @@ SPECTACULAR_SETTINGS = {
         }
     },
     'SECURITY': [{"ApiKeyAuth": [], }],
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
 }
 
 # https://stackoverflow.com/questions/14021913/django-logout-not-working
