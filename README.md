@@ -3,7 +3,7 @@
 Climate Challenge API
 -------------
 
-ClimateChallengeAPI is an application to storing, finding and getting data about the [desafioplaneta.com](https://desafioplaneta.com) game. The application was developed to be consumed inside game.
+ClimateChallengeAPI is an application to storing, finding and getting data about the [desafioplaneta.com](https://planet-challenge-landing.vercel.app/) game. The application was developed to be consumed inside game.
 
 The API performs and authentication system internally to deny the external callings without authorization rules. The rules will be stored in the video game. A comprehensive [RESTful API](docs/README.md) allows an easy handling of game data.
 
