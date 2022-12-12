@@ -13,16 +13,20 @@ import os
 import dj_database_url
 from pathlib import Path
 from django.urls import reverse_lazy
+import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load enviroment .env
+dotenv_path = os.path.join(BASE_DIR, '.env')
+dotenv.load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-DEFAULT_SECRET_KEY = 'django-insecure-x+-5rqurn#)vllskkhc!9t4$n=m$uvj0%b*ut$5#5h4)5&^a5='
-SECRET_KEY = os.environ.get('SECRET_KEY', default=DEFAULT_SECRET_KEY)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
