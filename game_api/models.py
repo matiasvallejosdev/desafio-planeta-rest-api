@@ -23,7 +23,6 @@ class Game(models.Model):
         ('blue', 'BLUE'),
         ('red', 'RED'),
         ('orange', 'ORANGE'),
-        ('violet', 'VIOLET'),
     )
     name = models.CharField(blank=True, max_length=240)
     subhead = models.CharField(blank=True, max_length=45)
