@@ -1,8 +1,8 @@
 # Introduction
 
-ClimateChallengeAPI gives you fully control access to many endpoints to be accessed inside the video game. It has, pieces, slots, questions, answers and topics to handle the video game.
+PlanetChallengeAPI gives you fully control access to many endpoints to be accessed inside the video game. It has, pieces, slots, questions, answers and topics to handle the video game.
 
-This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@desafioplaneta.com**
+This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@planetchallenge.com**
 
 > At this time the bees-tat API is unstable. This means that the way it works and the data it returns may change at any time. Breaking changes are rare, but do happen. Proper versioning will be introduced in a future release.
 
