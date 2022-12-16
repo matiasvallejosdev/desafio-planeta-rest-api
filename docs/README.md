@@ -29,7 +29,7 @@ Now, the following diagram represent the logic relations between the entities an
 
 _Diagram developed in `diagrams.net` to represent the entity-relation model_
 
-> Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
+> Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [planet challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
 
 # Getting Started
 
