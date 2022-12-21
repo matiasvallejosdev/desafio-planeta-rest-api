@@ -2,13 +2,13 @@
 
 ClimateChallengeAPI gives you fully control access to many endpoints to be accessed inside the video game. It has, pieces, slots, questions, answers and topics to handle the video game.
 
-This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@desafioplaneta.com**
+This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@desafioplaneta.com.**
 
-> At this time the bees-tat API is unstable. This means that the way it works and the data it returns may change at any time. Breaking changes are rare, but do happen. Proper versioning will be introduced in a future release.
+> At this time the bees-tat API is unstable. This means that the way it works, and the data it returns may change at any time. Breaking changes are rare, but do happen. Proper versioning will be introduced in a future release.
 
 # Understanding database
 
-This database was designed to build a game. The objective is support the data necessary to build the game. It is not related to users.
+This database was designed to build a game. The objective is support the data necessary to build the game. It is unrelated to users.
 
 The database has two purposes. First, it provides a list of topics and games that are necessary to build the game. Second, it provides all the necessary for the questions and answers. Each trivia was connected with a topic. Besides, each topic will be connected with a game that will save the images url, sprites and all metadata needed to start a new game.
 
@@ -29,17 +29,17 @@ Now, the following diagram represent the logic relations between the entities an
 
 _Diagram developed in `diagrams.net` to represent the entity-relation model_
 
-> Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
+> Note: Database is developed for a video game. It will be divided after the game design, and the requerimients for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
 
 # Getting Started
 
 [`https://desafioplaneta.com/api/`](https://desafioplaneta.com/api/)
 
-## Step 1 — Obtaining an API Key
+## Step 1 — Get an API Key
 
 The API credentials were stored inside each instance of the game and will be created only by a game.
 
-> Only client games can obtain API key.
+> Only client games can get API key.
 
 1. Use postman to get your `API_KEY` authentication token.
 
@@ -98,7 +98,7 @@ Open endpoints require no Authentication.
 ## Endpoints that require Authentication
 
 Closed endpoints require a valid Token to be included in the header of the
-request. A Token can be acquired from the Login view above.
+request. A Token can be get from the Login view above.
 
 * [`GET /user`](api/auth_api/get.md)
 * [`GET /game`](api/game_api/get.md)

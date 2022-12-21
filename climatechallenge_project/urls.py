@@ -19,5 +19,5 @@ urlpatterns = [
     # permissions login required
     # https://django.fun/en/qa/421446/
     # path('api/docs/', permission_required('is_staff', login_url='core:login')(SpectacularSwaggerView.as_view(url_name='schema')), name='docs')
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema') , name='docs')
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='docs')
 ]

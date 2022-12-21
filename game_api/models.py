@@ -40,6 +40,12 @@ class Game(models.Model):
 
 
 class Topic(models.Model):
+    LEVEL_CHOICES = (
+        ('easy', 'EASY'),
+        ('medium', 'MEDIUM'),
+        ('hard', 'HARD')
+    )
+    level = models.CharField(max_length=12, choices=LEVEL_CHOICES, default='easy')
     game = models.ForeignKey(Game, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=75)
     summary = models.CharField(blank=True, max_length=150)
@@ -50,4 +56,4 @@ class Topic(models.Model):
 
     def __str__(self):
         published = '👍' if self.is_published else '👎'
-        return f"{published} →   {self.game.name} 📍 {self.title}"
+        return f"{published} →  {self.game.name} 📍 {self.title} 🎚️ {str(self.level).capitalize()}"
