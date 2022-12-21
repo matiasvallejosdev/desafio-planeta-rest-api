@@ -2,11 +2,7 @@
 
 PlanetChallengeAPI gives you fully control access to many endpoints to be accessed inside the video game. It has, pieces, slots, questions, answers and topics to handle the video game.
 
-<<<<<<< HEAD
-This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@desafioplaneta.com.**
-=======
 This documentation describes all the available API calls and properties of the returned objects. If you have any questions, please reach out to **contact@planetchallenge.com**
->>>>>>> 512576068c642eb95a311e816e4e06f9b2f1af69
 
 > At this time the bees-tat API is unstable. This means that the way it works, and the data it returns may change at any time. Breaking changes are rare, but do happen. Proper versioning will be introduced in a future release.
 
@@ -33,11 +29,7 @@ Now, the following diagram represent the logic relations between the entities an
 
 _Diagram developed in `diagrams.net` to represent the entity-relation model_
 
-<<<<<<< HEAD
-> Note: Database is developed for a video game. It will be divided after the game design, and the requerimients for the project [climate challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
-=======
-> Note: Database is developed for a video game. It will be divided following the game design and the requerimientos for the project [planet challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
->>>>>>> 512576068c642eb95a311e816e4e06f9b2f1af69
+> Note: Database is developed for a video game. It will be divided following the game design, and the requerimientos for the project [planet challenge](https://github.com/matiasvallejosdev/planet-challenge-game) game. Otherwise, it can be used for other purposes. 
 
 # Getting Started
 
