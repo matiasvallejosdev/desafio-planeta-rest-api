@@ -27,7 +27,7 @@ class Game(models.Model):
     name = models.CharField(blank=True, max_length=240)
     subhead = models.CharField(blank=True, max_length=45)
     summary = models.CharField(blank=True, max_length=240)
-    color = models.CharField(max_length=6, choices=COLOR_CHOICES, default='black')
+    color = models.CharField(max_length=6, choices=COLOR_CHOICES, default='green')
     slot = models.ForeignKey(Slot, blank=True, null=True, on_delete=models.CASCADE)
     pieces = models.ManyToManyField(Piece, blank=True)
     is_published = models.BooleanField(default=False)

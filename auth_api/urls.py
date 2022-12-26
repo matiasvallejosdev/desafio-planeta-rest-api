@@ -1,11 +1,10 @@
 from django.urls import include, path
 from auth_api import views
 
-app_label = 'auth_api'
+app_name = 'auth_api'
 urlpatterns = [
-    path('', views.UserConnectionAPI.as_view(), name='test-connection'),
-    path('user/create/', views.UserCreateAPI.as_view(), name='create_user'),
-    path('user/<int:pk>/', views.UserRetrieveAPI.as_view(), name='retrieve_user'),
-    path('user/', views.UserListAPI.as_view(), name='list_user'),
+    path('', views.UserConnectionAPI.as_view(), name='connection'),
+    path('create/', views.UserCreateView.as_view(), name='create'),
     path('token/', views.UserTokenAPI.as_view(), name='token'),
+    path('me/', views.UserManageView.as_view(), name='me'),
 ]

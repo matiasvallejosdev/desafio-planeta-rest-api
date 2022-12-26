@@ -3,7 +3,7 @@ from rest_framework import serializers
 from trivia_api.models import Answer, Question, Trivia
 from game_api.models import Topic
 
-from game_api.serializers import TopicBasicSerailizer
+# from game_api.serializers import TopicBasicSerailizer
 
 
 class TriviaAnswerSerializer(serializers.ModelSerializer):

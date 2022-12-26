@@ -190,7 +190,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'auth_api.User'
 
 # Default storage in aws
-
 AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
@@ -203,3 +202,8 @@ AWS_STORAGE_BUCKET_NAME = 'climatechallenge'
 CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
+
+
+# Testing colors
+# https://stackoverflow.com/questions/7815513/colorizing-the-output-of-django-tests
+TEST_RUNNER = "redgreenunittest.django.runner.RedGreenDiscoverRunner"

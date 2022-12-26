@@ -1,9 +1,10 @@
 from django.urls import path, include
-from game_api import views
+from game_api.views import GameListCreateView, GameRetrieveUpdateDestroyView, TopicListCreateView, TopicRetrieveUpdateDestroyView
 
 app_name = 'game_api'
 urlpatterns = [
-    path('game/<int:pk>/', views.GameRetrieveAPI.as_view(), name='game-pk'),
-    path('topic/<int:pk>/', views.TopicRetrieveAPI.as_view(), name='topic-pk'),
-    path('topics/', views.TopicListAPI.as_view(), name='topic-list4')
+    path('game/', GameListCreateView.as_view(), name='game'),
+    path('game/<int:pk>/', GameRetrieveUpdateDestroyView.as_view(), name='game'),
+    path('topic/', TopicListCreateView.as_view(), name='topic'),
+    path('topic/<int:pk>/', TopicRetrieveUpdateDestroyView.as_view(), name='topic'),
 ]

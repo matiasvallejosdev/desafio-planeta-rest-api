@@ -14,6 +14,14 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return get_user_model().objects.create_user(**validated_data)
 
+    def update(self, instance, validated_data):
+        password = self.validated_data.pop('password', None)
+        user = super().update(instance, validated_data)
+        if password:
+            user.set_password(password)
+        user.save()
+        return user
+
 
 class AuthSerializer(serializers.Serializer):
     email = serializers.EmailField()
@@ -27,7 +35,7 @@ class AuthSerializer(serializers.Serializer):
         password = attrs.get('password')
 
         user = authenticate(
-            request=self.context.get('request'),
+            request=self.context.get('request', ),
             username=email,
             password=password
         )

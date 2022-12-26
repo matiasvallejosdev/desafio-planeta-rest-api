@@ -18,23 +18,18 @@ class UserConnectionAPI(APIView):
         })
 
 
-class UserCreateAPI(generics.CreateAPIView):
+class UserCreateView(generics.CreateAPIView):
     serializer_class = serializers.UserSerializer
-    permission_classes = (permissions.IsAdminUser,)
-
-
-class UserRetrieveAPI(generics.RetrieveAPIView):
-    serializer_class = serializers.UserSerializer
-    queryset = get_user_model().objects.all()
-    permission_classes = (permissions.IsAdminUser,)
-
-
-class UserListAPI(generics.ListAPIView):
-    serializer_class = serializers.UserSerializer
-    queryset = get_user_model().objects.all()
-    permission_classes = (permissions.IsAdminUser,)
 
 
 class UserTokenAPI(ObtainAuthToken):
     serializer_class = serializers.AuthSerializer
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+
+
+class UserManageView(generics.RetrieveUpdateAPIView):
+    serializer_class = serializers.UserSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_object(self):
+        return self.request.user
