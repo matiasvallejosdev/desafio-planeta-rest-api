@@ -89,7 +89,7 @@ class PrivateTopicAPITest(TestCase):
             'title': 'My new title'
         })
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        serializer = TopicSerializer(Topic.objects.get())
+        serializer = TopicSerializer(Topic.objects.get(pk=topic.pk))
         self.assertEqual(serializer.data, res.data)
 
     def test_destroy_details_topic_id(self):

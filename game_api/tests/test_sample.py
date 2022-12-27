@@ -1,6 +1,7 @@
 from game_api.models import Topic, Game, Slot, Piece
 from django.utils import timezone
 
+
 def create_sample_game(name='My name', subhead='Subhead', summary='', color='green', is_published=True):
     return Game.objects.create(
         name=name,

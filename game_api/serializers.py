@@ -28,7 +28,6 @@ class GameDetailSerializer(serializers.ModelSerializer):
         else:
             return TopicSerializer(Topic.objects.filter(game__id=game.id, is_published=True), many=True).data
 
-
     class Meta:
         model = Game
         fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics')
@@ -42,12 +41,3 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level',)
         read_only_fields = ('id',)
         depth = 1
-
-# class GameBasicSerializer(serializers.Serializer):
-#     id = serializers.IntegerField()
-#     name = serializers.CharField(max_length=240)
-#     subhead = serializers.CharField(max_length=240)
-
-# class TopicBasicSerailizer(serializers.Serializer):
-#     id = serializers.IntegerField()
-#     title = serializers.CharField(max_length=255)
