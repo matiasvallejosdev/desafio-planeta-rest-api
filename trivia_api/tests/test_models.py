@@ -22,7 +22,10 @@ class ModelTestCase(TestCase):
             is_published=True,
             created_at=timezone.now()
         )
-        question.answers.add(None)
+        question.answers.add(Answer.objects.create(
+            answer='my answer',
+            is_correct=True
+        ))
         self.assertIn(question.question, str(question))
 
     def test_trivia_str(self):
@@ -31,5 +34,12 @@ class ModelTestCase(TestCase):
             is_published=False,
             created_at=timezone.now()
         )
-        trivia.questions.add(None)
+        trivia.questions.add(Question.objects.create(
+            question = 'my question',
+            type='FourAnswers',
+            has_explication = False,
+            explication='',
+            is_published=True,
+            created_at=timezone.now()
+        ))
         self.assertIn(str(trivia.id), str(trivia))
