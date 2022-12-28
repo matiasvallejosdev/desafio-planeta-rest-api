@@ -53,7 +53,7 @@ class PrivateTopicAPITest(TestCase):
         create_sample_topic(title='topic3', game=game, is_published=False)
         res = self.client.get(TOPIC_LIST_CREATE_URL)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertTrue(len(res.data) == 2)
+        self.assertEqual(len(res.data), 2)
 
     def test_list_topic_all(self):
         game1 = create_sample_game(name='game1', is_published=True)
@@ -62,7 +62,7 @@ class PrivateTopicAPITest(TestCase):
         create_sample_topic(title='topic3', game=game1, is_published=False)
         res = self.client.get(TOPIC_LIST_CREATE_URL, {'all': True})
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertTrue(len(res.data) == 3)
+        self.assertEqual(len(res.data), 3)
 
     def test_create_simple_topic(self):
         game1 = create_sample_game(name='game1', is_published=True)

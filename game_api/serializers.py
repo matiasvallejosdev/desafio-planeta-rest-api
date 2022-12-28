@@ -1,8 +1,17 @@
 from rest_framework import serializers
 from game_api.models import Topic, Game, Slot, Piece
 
-
+# Using depth in serializers
+# https://medium.com/@rudmanmrrod/django-rest-framework-uso-del-depth-en-serializer-a500969779e9
 class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = ('id', 'name',)
+        read_only_fields = ('id',)
+        depth = 1
+
+
+class GamePostSerializer(serializers.ModelSerializer):
     slot = serializers.PrimaryKeyRelatedField(many=False, queryset=Slot.objects.all(), required=False)
     pieces = serializers.PrimaryKeyRelatedField(many=True, queryset=Piece.objects.all(), required=False)
 
@@ -13,7 +22,15 @@ class GameSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-class GameDetailSerializer(serializers.ModelSerializer):
+class GamePiecesDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = ('id', 'name', 'color', 'slot', 'pieces',)
+        read_only_fields = ('id',)
+        depth = 2
+
+
+class GameTopicsDetailSerializer(serializers.ModelSerializer):
     topics = serializers.SerializerMethodField('get_topics')
 
     def _is_all(self):
@@ -30,14 +47,25 @@ class GameDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Game
-        fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics')
+        fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics', )
         read_only_fields = ('id', 'topics',)
         depth = 1
 
 
 class TopicSerializer(serializers.ModelSerializer):
+    game = GameSerializer()
+
     class Meta:
         model = Topic
-        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level',)
+        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published', )
         read_only_fields = ('id',)
         depth = 1
+
+
+class TopicPostSerializer(serializers.ModelSerializer):
+    game = serializers.PrimaryKeyRelatedField(many=False, queryset=Game.objects.all(), required=False)
+
+    class Meta:
+        model = Topic
+        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published', )
+        read_only_fields = ('id',)

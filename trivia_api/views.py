@@ -32,15 +32,15 @@ class TriviaTopicRetrieveView(generics.RetrieveAPIView):
 
     def get(self, request, pk=None, **kwargs):
         is_all = self.request.query_params.get('all')
-        topic = get_object_or_404(Topic, pk=pk)
+        topic = self.get_object(pk=pk)
         serializer = self.serializer_class(topic, context={
             'all': is_all
         }, many=False)
         return Response(serializer.data)
 
-    def get_queryset(self):
+    def get_object(self, pk=None):
         is_all = self.request.query_params.get('all')
-        return self.queryset.order_by('-id') if is_all else self.queryset.filter(is_published=True)
+        return get_object_or_404(Topic, pk=pk) if is_all else get_object_or_404(Topic, pk=pk, is_published=True)
 
 
 class TriviaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):

@@ -15,7 +15,6 @@ from game_api.models import Topic
 
 TRIVIA_LIST_CREATE_URL = reverse('trivia_api:trivia')
 
-
 def get_trivia_id_url(pk):
     return reverse('trivia_api:trivia', kwargs={'pk': pk})
 

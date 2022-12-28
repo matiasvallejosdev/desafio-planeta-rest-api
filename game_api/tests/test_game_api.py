@@ -6,7 +6,7 @@ from rest_framework.test import APIClient
 from rest_framework import status
 
 from game_api.models import Game, Topic, Slot, Piece
-from game_api.serializers import GameSerializer, GameDetailSerializer
+from game_api.serializers import GameSerializer, GameTopicsDetailSerializer, GamePiecesDetailSerializer
 
 from .test_sample import *
 
@@ -49,17 +49,22 @@ class PrivateGameAPITest(TestCase):
         create_sample_topic(title='topic2', game=game)
         res = self.client.get(GAME_LIST_CREATE_URL)
         games = Game.objects.all().filter(is_published=True).order_by('id')
-        serializer = GameDetailSerializer(games, many=True)
+        serializer = GameTopicsDetailSerializer(games, many=True)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
     def test_list_game_only_published(self):
-        game = create_sample_game()
-        create_sample_topic(title='topic1_published', game=game, is_published=True)
-        create_sample_topic(title='topic2_published', game=game, is_published=True)
-        create_sample_topic(title='topic3', game=game, is_published=False)
+        game1 = create_sample_game(is_published=True)
+        game2 = create_sample_game(is_published=False)
+        game3 = create_sample_game(is_published=False)
+        create_sample_topic(title='topic1_published', game=game1, is_published=True)
+        create_sample_topic(title='topic2_published', game=game1, is_published=True)
+        create_sample_topic(title='topic3_published', game=game2, is_published=True)
+        create_sample_topic(title='topic4', game=game2, is_published=False)
+        create_sample_topic(title='topic5', game=game3, is_published=False)
+        create_sample_topic(title='topic6', game=game3, is_published=False)
         res = self.client.get(GAME_LIST_CREATE_URL)
-        self.assertTrue(len(res.data) + 1 == 2)
+        self.assertEqual(len(res.data), 1)
 
     def test_list_game_all(self):
         game1 = create_sample_game(name='game1', is_published=True)
@@ -82,8 +87,8 @@ class PrivateGameAPITest(TestCase):
         res = self.client.get(GAME_LIST_CREATE_URL, {'all': True})
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertTrue(len(res.data) == 2)
-        self.assertEqual(len(res.data[0]['topics']), 3)
-        self.assertEqual(len(res.data[1]['topics']), 2)
+        self.assertEqual(len(res.data[0]['topics']), 2)
+        self.assertEqual(len(res.data[1]['topics']), 3)
 
     def test_create_basic_game(self):
         payload = {
@@ -119,5 +124,5 @@ class PrivateGameAPITest(TestCase):
         game = create_sample_game()
         res = self.client.get(get_game_id_url(game.id))
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        serializer = GameSerializer(game)
+        serializer = GamePiecesDetailSerializer(game)
         self.assertEqual(res.data, serializer.data)

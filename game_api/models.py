@@ -56,4 +56,4 @@ class Topic(models.Model):
 
     def __str__(self):
         published = '👍' if self.is_published else '👎'
-        return f"{published} →  {self.game.name} 📍 {self.title} 🎚️ {str(self.level).capitalize()}"
+        return f"{published} → 📍 {self.title} 🎚️ {str(self.level).capitalize()}"
