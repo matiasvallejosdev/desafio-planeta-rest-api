@@ -1,19 +1,26 @@
 [
   {
-    "id": 1,
-    "name": "Dióxido de carbono",
-    "summary": "El C02 como principal actor en el calentamiento global. Autos e industrias. Talas de árboles. Consecuencias. Revolución industrial. Tráfico. Energía.",
-    "subhead": "Aprende sobre el dióxido de carbono",
-    "color": "blue",
-    "topics": [
-      {
-        "id": 2,
-        "title": "Aprende sobre el dióxido de carbono",
-        "thumbnail": null,
-        "summary": "El dióxido de Carbono es un gas incoloro, inodoro e incombustible que se encuentra en baja concentración en el aire que respiramos.",
-        "featured": false,
-        "level": "easy"
-      }
-    ]
+    "id": 15,
+    "title": "Los plasticos",
+    "thumbnail": "https://climatechallenge.s3.amazonaws.com/piece_trash-1.png",
+    "summary": "Los plásticos son responsabilidad humana",
+    "featured": false,
+    "level": "easy",
+    "game": {
+      "id": 3,
+      "name": "La basura"
+    }
+  },
+  {
+    "id": 2,
+    "title": "¿Que es el dioxido de carbono?",
+    "thumbnail": "https://climatechallenge.s3.amazonaws.com/thumbnail-1.png",
+    "summary": "El dióxido de Carbono es un gas incoloro, inodoro e incombustible que se encuentra en baja concentración en el aire que respiramos.",
+    "featured": false,
+    "level": "medium",
+    "game": {
+      "id": 1,
+      "name": "Dióxido de carbono"
+    }
   }
 ]

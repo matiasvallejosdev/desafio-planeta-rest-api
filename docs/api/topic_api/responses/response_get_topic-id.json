@@ -4,5 +4,9 @@
   "thumbnail": "https://climatechallenge.s3.amazonaws.com/thumbnail-1.png",
   "summary": "El dióxido de Carbono es un gas incoloro, inodoro e incombustible que se encuentra en baja concentración en el aire que respiramos.",
   "featured": false,
-  "level": "easy"
+  "level": "medium",
+  "game": {
+    "id": 1,
+    "name": "Dióxido de carbono"
+  }
 }

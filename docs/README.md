@@ -44,7 +44,7 @@ The API credentials were stored inside each instance of the game and will be cre
 1. Use postman to get your `API_KEY` authentication token.
 
 ```bash
-https://desafioplaneta.com/api/token/
+https://drf/api/token/
 ```
 ### Step 2 — Setup
 
@@ -93,14 +93,13 @@ All API calls will return JSON a set of properties. Exceptions to this will be s
 Open endpoints require no Authentication.
 
 * [`POST /auth`](api/auth_api/post.md)
-* [`GET /api`](api/base_api/get.md)
+* [`GET /api/docs`](api/core_api/get.md)
 
 ## Endpoints that require Authentication
 
 Closed endpoints require a valid Token to be included in the header of the
 request. A Token can be get from the Login view above.
 
-* [`GET /user`](api/auth_api/get.md)
 * [`GET /game`](api/game_api/get.md)
 * [`GET /topic`](api/topic_api/get.md)
 * [`GET /trivia`](api/trivia_api/get.md)

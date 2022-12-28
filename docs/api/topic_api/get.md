@@ -2,11 +2,10 @@
 
 A topic is a set of educational questions, answers and game that will help to build a game. You usually get it at the menu of the game.
 
-
 GET /topic
 ---
 
-This endpoint gives you access to a list of all topics available in the game grouped by game.
+This endpoint gives you access to a list of all topics available.
 
 **Auth required** : YES
 
@@ -14,7 +13,7 @@ This endpoint gives you access to a list of all topics available in the game gro
 
 **Arguments**
 
-None required.
+* `all`: List all or only published. **Optional**
 
 **Example Request**
 
