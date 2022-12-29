@@ -42,7 +42,7 @@ class PrivateTopicAPITest(TestCase):
         create_sample_topic(title='topic2', game=game)
         res = self.client.get(TOPIC_LIST_CREATE_URL)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        topics = Topic.objects.filter(is_published=True).order_by('-id')
+        topics = Topic.objects.filter(is_published=True).order_by('-created_at')
         serializer = TopicSerializer(topics, many=True)
         self.assertEqual(res.data, serializer.data)
 

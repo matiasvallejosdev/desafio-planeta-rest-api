@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from game_api.models import Topic, Game, Slot, Piece
 
+
 # Using depth in serializers
 # https://medium.com/@rudmanmrrod/django-rest-framework-uso-del-depth-en-serializer-a500969779e9
 class GameSerializer(serializers.ModelSerializer):
@@ -47,7 +48,7 @@ class GameTopicsDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Game
-        fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics', )
+        fields = ('id', 'name', 'summary', 'subhead', 'color', 'topics',)
         read_only_fields = ('id', 'topics',)
         depth = 1
 
@@ -57,7 +58,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published', )
+        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published',)
         read_only_fields = ('id',)
         depth = 1
 
@@ -67,5 +68,5 @@ class TopicPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published', )
+        fields = ('id', 'title', 'thumbnail', 'summary', 'featured', 'level', 'game', 'is_published',)
         read_only_fields = ('id',)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Slot(models.Model):
@@ -31,6 +32,7 @@ class Game(models.Model):
     slot = models.ForeignKey(Slot, blank=True, null=True, on_delete=models.CASCADE)
     pieces = models.ManyToManyField(Piece, blank=True)
     is_published = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         pieces_count = self.pieces.count()
