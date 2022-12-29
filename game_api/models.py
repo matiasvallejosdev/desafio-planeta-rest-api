@@ -54,7 +54,7 @@ class Topic(models.Model):
     thumbnail = models.ImageField(blank=True, null=True)
     featured = models.BooleanField(default=False, blank=True)
     is_published = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         published = '👍' if self.is_published else '👎'
