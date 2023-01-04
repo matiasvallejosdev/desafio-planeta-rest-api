@@ -16,7 +16,9 @@ jobs:
         python-version: [3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@main
+    - name: Data
+      run: ls -l
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
@@ -32,3 +34,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         python manage.py test
+    - name: Check lint
+      run: |
+        flake8
