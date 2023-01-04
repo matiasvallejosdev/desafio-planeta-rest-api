@@ -16,7 +16,9 @@ jobs:
         python-version: [3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Data
       run: ls -l
     - name: Set up Python ${{ matrix.python-version }}
