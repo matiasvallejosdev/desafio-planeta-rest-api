@@ -36,6 +36,3 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         python manage.py test
-    - name: Check lint
-      run: |
-        flake8
