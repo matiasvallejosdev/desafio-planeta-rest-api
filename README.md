@@ -1,4 +1,5 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Django CI](https://github.com/matiasvallejosdev/planet-challenge-django-rest-api/actions/workflows/django.yml/badge.svg)](https://github.com/matiasvallejosdev/planet-challenge-django-rest-api/actions/workflows/django.yml)
 
 Planet Challenge API
 -------------
