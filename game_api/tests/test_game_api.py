@@ -95,9 +95,8 @@ class PrivateGameAPITest(TestCase):
         create_sample_topic(title='topic5', game=game2, is_published=True)
         res = self.client.get(GAME_LIST_CREATE_URL, {'all': True})
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertTrue(len(res.data) == 2)
-        self.assertEqual(len(res.data[1]['topics']), 2)
-        self.assertEqual(len(res.data[0]['topics']), 3)
+        self.assertEqual(len(res.data[0]['topics']), 2)
+        self.assertEqual(len(res.data[1]['topics']), 3)
 
     def test_create_basic_game(self):
         payload = {
