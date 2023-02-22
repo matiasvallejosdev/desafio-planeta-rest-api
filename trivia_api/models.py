@@ -39,4 +39,4 @@ class Trivia(models.Model):
 
     def __str__(self):
         published = '👍' if self.is_published else '👎'
-        return f"{published} → Trivia {self.pk} → {self.topic.title}"
+        return f"{published} → Trivia {self.pk} → {self.trivia_name} → {self.topic.title}"
