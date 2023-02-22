@@ -34,7 +34,8 @@ class GameListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         is_all = self.request.query_params.get('all')
-        return self.queryset.order_by('-created_at') if is_all is not None else self.queryset.filter(is_published=True).order_by('id')
+        return self.queryset.order_by('-created_at') if is_all is not None \
+            else self.queryset.filter(is_published=True).order_by('id')
 
     def get(self, request, **kwargs):
         is_all = self.request.query_params.get('all')

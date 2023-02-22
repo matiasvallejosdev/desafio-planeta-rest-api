@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'trivia_api',
 
     'django_filters',
+    'django_extensions'
 ]
 
 REST_FRAMEWORK = {
