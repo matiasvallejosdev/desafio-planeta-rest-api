@@ -30,6 +30,8 @@ class Question(models.Model):
 
 
 class Trivia(models.Model):
+    trivia_name = models.CharField(max_length=255, null=True)
+    trivia_paragraph = models.TextField(blank=True, null=True)
     topic = models.ForeignKey(Topic, null=True, blank=True, on_delete=models.SET_NULL)
     questions = models.ManyToManyField(Question, blank=True)
     is_published = models.BooleanField(default=True)
