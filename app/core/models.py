@@ -16,12 +16,10 @@ class UserManager(BaseUserManager):
             if check_email(email) is False:
                 raise ValueError('Email must be in the correct format')
 
-        if not kwargs.get('username'):
-            username = self.create_random_username()
-        else:
-            username = kwargs['username'].lower()
+        
+        kwargs['username'] = self.create_random_username().lower()
 
-        user = self.model(username=username, email=self.normalize_email(email), **kwargs)
+        user = self.model(email=self.normalize_email(email), **kwargs)
         user.set_password(password)
         user.save(using=self.db)
         
